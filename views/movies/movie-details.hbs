@@ -1,0 +1,19 @@
+<div>
+  <h2>Mostrando los detalles de las peliculas</h2>
+
+  <h3>Title: {{details.title}}</h3>
+  <p>Genre: {{details.genre}}</p>
+  <p>Plot: {{details.plot}}</p>
+  {{#each details.cast}}
+
+  <h4>Name: {{name}}</h4>
+  <p>Occupation: {{occupation}}</p>
+  <p>Catch Phrase: {{catchPhrase}}</p>
+
+  {{/each}}
+  <form action="/movies/{{details._id}}/delete" method="post"><button>Borrar</button></form>
+
+  <a href="/movies/{{details._id}}/update"><button>UPDATE</button></a>
+
+
+</div>
