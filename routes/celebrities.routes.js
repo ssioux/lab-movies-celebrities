@@ -25,7 +25,7 @@ router.post("/create", async (req, res, next)=>{
         })
         res.redirect("/celebrities")
     } catch (error) {
-        res.render("celebrities/new-celebrities.hbs")
+        //res.render("celebrities/new-celebrities.hbs") curro win
         //!res.redirect("/celebrities/create") CUAL PONER?¿?
         next(error)
     }
