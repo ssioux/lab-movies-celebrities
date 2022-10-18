@@ -8,6 +8,7 @@ const moviesSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Celebrities"
   }]
+  
 })
 
 const Movie = mongoose.model("Movie", moviesSchema)

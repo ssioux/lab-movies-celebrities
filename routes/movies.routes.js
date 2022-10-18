@@ -4,9 +4,19 @@ const Movie = require("../models/movie.model.js")
 
 // GET "/movies/create" => Ruta para renderizar el formulario
 
-router.get("/create", (req, res, next) =>{
-
-    res.render("movies/new-movies.hbs")
+router.get("/create", async (req, res, next) =>{
+  console.log("entrando en ruta create de movies")
+    
+    try {
+      const celebritiesList = await Celebrities.find()
+      console.log(celebritiesList)
+      res.render("movies/new-movies.hbs", {
+        celebritiesList
+      })
+      
+    } catch (error) {
+      next(error)
+    }
 })
 
 // POST "/movies/create" => Ruta que crea una nueva celebridad
@@ -27,7 +37,7 @@ router.post("/create", async (req, res, next)=>{
         })
         res.redirect("/movies")
     } catch (error) {
-        res.render("movies/new-movies.hbs")
+        //res.render("movies/new-movies.hbs")
         //!res.redirect("/movies/create") CUAL PONER?¿?
         next(error)
     }
@@ -36,6 +46,7 @@ router.post("/create", async (req, res, next)=>{
 
 // GET "/movies" => Ruta para acceso a la lista
 router.get("/", async (req, res, next) => {
+  console.log("entrando en la ruta de acceso a la lista")
     try {
         const moviesList = await Movie.find()
         console.log(moviesList)

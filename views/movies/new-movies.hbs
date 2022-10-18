@@ -13,8 +13,13 @@
     <label for="plot">Plot: </label>
     <input type="text" name="plot" />
     <br />
-    <label for="plot">Plot: </label>
-    <input type="text" name="plot" />
+    <label for="cast">Cast: </label>
+    <select name="cast" multiple="true">
+      {{#each celebritiesList}}
+          <option value="{{this._id}}">{{this.name}}</option>
+      {{/each}}
+
+    </select>
     <br />
     <button class="btn btn-dark">Add</button>
 
